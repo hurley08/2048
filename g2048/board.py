@@ -1,7 +1,5 @@
 # 2048/board.py
-
-from g2048 import ai
-from g2048 import logic
+from g2048 import ai, logic
 import tkinter as tk
 
 EDGE_LENGTH = 400
@@ -93,7 +91,7 @@ class Board(tk.Frame):
 
     def key_press(self, event):
         valid_game = True
-        key = repr(event.char)
+        key = AI_PLAY_KEY
         if key == AI_PLAY_KEY:
             move_count = 0
             while valid_game:

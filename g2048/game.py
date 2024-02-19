@@ -1,8 +1,7 @@
 import tkinter as tk
 import random
-from g2048 import colors
-from g2048 import ai
-
+from g2048 import colors, ai
+from g2048.logic import move_left, move_right, move_up, move_down
 
 class Game(tk.Frame):
     def __init__(self):
@@ -170,7 +169,8 @@ class Game(tk.Frame):
         self.stack()
         self.combine()
         self.stack()
-        self.mainloopreverse()
+
+        self.reverse()
         self.add_new_tile()
         self.update_GUI()
         self.game_over()
@@ -239,6 +239,7 @@ class Game(tk.Frame):
                 bg=colors.LOSER_BG,
                 fg=colors.GAME_OVER_FONT_COLOR,
                 font=colors.GAME_OVER_FONT).pack()
+        self.mainloop()
 
 
 def main():

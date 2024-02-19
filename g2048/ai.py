@@ -2,26 +2,29 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from g2048 import logic 
 
-NUMBER_OF_MOVES = 4
+
+NUMBER_OF_MOVES = 8
 SAMPLE_COUNT = 50
 SPM_SCALE_PARAM = 10
 SL_SCALE_PARAM = 4
 SEARCH_PARAM = 200
-
+'''
 try:
     from g2480.logic import initialize_game, random_move,\
                             move_down, move_left,\
                             move_right, move_up,\
                             check_for_win, add_new_tile,\
-                            check_for_loss
-except:
-    from logic import initialize_game, random_move,\
+
+'''                           
+from g2048.logic import initialize_game, random_move,\
                             move_down, move_left,\
                             move_right, move_up,\
                             check_for_win, add_new_tile,\
                             check_for_loss
-    
+
+  
 def get_search_params(move_number):
     searches_per_move = SPM_SCALE_PARAM * (1+(move_number // SEARCH_PARAM))
     search_length = SL_SCALE_PARAM * (1+(move_number // SEARCH_PARAM))
